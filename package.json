@@ -6,7 +6,8 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "test": "live-server --open=./SpecRunner.html --port=8081"
+    "test": "live-server --open=./SpecRunner.html --port=8081",
+    "start": "npx babel src/index.js --watch --out-file compiled/src/index.js"
   },
   "dependencies": {
     "bootstrap": "^4.5.3",

@@ -11,7 +11,7 @@ var searchYouTube = (query, callback) => {
     type: 'GET',
     data: {q: query},
     dataType: 'json', // added data type
-    youtube_api_key: YOUTUBE_API_KEY,
+    //youtube_api_key: YOUTUBE_API_KEY,
     success: function(res) {
       callback(res);
       console.log('successfully searched YouTube');

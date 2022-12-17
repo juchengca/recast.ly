@@ -4,12 +4,37 @@ import VideoListEntry from './VideoListEntry.js';
 import VideoPlayer from './VideoPlayer.js';
 import exampleVideoData from '../data/exampleVideoData.js';
 import Search from './Search.js';
+import searchYouTube from '../lib/searchYouTube.js';
 
 var App = () => {
 // class App extends React.Component {
 
-  const [currentVideo, setVideo] = React.useState(exampleVideoData[0]);
-  const [videoList, setVideoList] = React.useState(exampleVideoData);
+  const [currentVideo, setVideo] = React.useState({});
+  const [videoList, setVideoList] = React.useState([]);
+
+  //const [currentVideo, setVideo] = React.useState(exampleVideoData[0]);
+  //const [videoList, setVideoList] = React.useState(exampleVideoData);
+
+
+  React.useEffect(() => {
+    // monitor Search bar
+
+    // once change is detected, call searchYouTube with current input
+
+    // receive data returned from searchYoutube
+
+    // use data to setVideoList
+
+    // use first video from setVideoList to setVideo
+
+    var data = searchYoutube('cat');
+
+    setVideoList(data);
+
+    setVideo(data[0]);
+
+  }, [currentVideo, videoList]);
+
 
   return (
     <div>

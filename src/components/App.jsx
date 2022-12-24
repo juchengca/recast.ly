@@ -9,9 +9,9 @@ import searchYouTube from '../lib/searchYouTube.js';
 var App = () => {
 // class App extends React.Component {
 
-  const [currentVideo, setVideo] = React.useState(exampleVideoData[0]);
-  const [videoList, setVideoList] = React.useState(exampleVideoData);
   const [search, setSearch] = React.useState('cat');
+  const [currentVideo, setVideo] = React.useState(exampleVideoData[0]);
+  const [videoList, setVideoList] = React.useState([]);
 
   const handleChange = (event) => {
     setSearch(event.target.value);

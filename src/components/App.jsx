@@ -9,39 +9,29 @@ import searchYouTube from '../lib/searchYouTube.js';
 var App = () => {
 // class App extends React.Component {
 
-  const [currentVideo, setVideo] = React.useState({});
-  const [videoList, setVideoList] = React.useState([]);
+  const [currentVideo, setVideo] = React.useState(exampleVideoData[0]);
+  const [videoList, setVideoList] = React.useState(exampleVideoData);
+  const [search, setSearch] = React.useState('cat');
 
-  //const [currentVideo, setVideo] = React.useState(exampleVideoData[0]);
-  //const [videoList, setVideoList] = React.useState(exampleVideoData);
-
+  const handleChange = (event) => {
+    setSearch(event.target.value);
+  };
 
   React.useEffect(() => {
-    // monitor Search bar
 
-    // once change is detected, call searchYouTube with current input
+    searchYouTube(search, (data) => {
+      setVideo(data[0]);
+      setVideoList(data);
+    });
 
-    // receive data returned from searchYoutube
-
-    // use data to setVideoList
-
-    // use first video from setVideoList to setVideo
-
-    var data = searchYoutube('cat');
-
-    setVideoList(data);
-
-    setVideo(data[0]);
-
-  }, [currentVideo, videoList]);
-
+  }, [search]);
 
   return (
     <div>
       <nav className="navbar">
         <div className="col-md-6 offset-md-3">
           {/*<div><h5><em>search</em> view goes here</h5></div>*/}
-          <Search />
+          <Search searchHandler={handleChange} />
         </div>
       </nav>
       <div className="row">
